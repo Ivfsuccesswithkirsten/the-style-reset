@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261030_153635_0f261661-566c-444e-982c-abdd2c81a864.png">
+<link rel="icon" href="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261030_153635_0f261661-566c-444e-982c-abdd2c81a864.png">
+<title>The Style Reset by Sophie</title>
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta name="description" content="Find your style, your colours and outfits from clothes you already own. $27, instant access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600;700&family=Mrs+Saint+Delafield&display=swap">
+<style>
+:root{
+--paper:#F6EEEA; --card:#FFFDFB; --ink:#3A2620; --muted:#7D665E; --rose:#B9716C; --rose-soft:#EBD3CE; --oat:#E7DACD; --line:#E2D2C9; --on-rose:#FFFFFF; --band:#3A2620; --on-band:#F6EEEA;
+--display:"Gloock", Georgia, "Times New Roman", serif;
+--body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+--sign:"Mrs Saint Delafield", "Brush Script MT", cursive;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+--paper:#1D1614; --card:#271E1B; --ink:#F3E8E2; --muted:#B9A49B; --rose:#D99A94; --rose-soft:#47302D; --oat:#3A2E2A; --line:#3D302C; --on-rose:#241614; --band:#2E2320; --on-band:#F3E8E2; color-scheme:dark}}
+:root[data-theme="dark"]{
+--paper:#1D1614; --card:#271E1B; --ink:#F3E8E2; --muted:#B9A49B; --rose:#D99A94; --rose-soft:#47302D; --oat:#3A2E2A; --line:#3D302C; --on-rose:#241614; --band:#2E2320; --on-band:#F3E8E2; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--paper)}
+body{color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.in{max-width:1040px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.narrow{max-width:640px}
+section{padding-block:64px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.3rem,6vw,4rem)}
+h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+h3{font-size:1.3rem}
+p{margin:0}
+.eyebrow{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.sign{font-family:var(--sign);color:var(--rose);line-height:1}
+.stack{display:flex;flex-direction:column;gap:16px}
+.muted{color:var(--muted)}
+a{color:inherit}
+.buy{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;background:var(--rose);color:var(--on-rose);font-weight:700;padding:17px 30px;border-radius:999px;font-size:1.05rem;transition:transform .15s ease, box-shadow .15s ease;box-shadow:0 8px 24px -12px var(--rose)}
+.buy:hover{transform:translateY(-2px)}
+.buy:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.buy small{font-weight:500;opacity:.85}
+.reassure{font-size:.86rem;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
+.top{display:flex;justify-content:space-between;align-items:center;padding-block:18px}
+.top .sign{font-size:2.1rem}
+.top a{font-size:.9rem;font-weight:600;text-decoration:none;border-bottom:1px solid var(--rose)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-block:24px 56px}
+.hero-photo{position:relative}
+.hero-photo img{width:100%;max-width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:200px 200px 18px 18px;display:block}
+.hero-photo .tag{position:absolute;left:-18px;bottom:28px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:.88rem;max-width:230px;box-shadow:0 10px 30px -18px rgba(58,38,32,.5)}
+.hero-photo .tag b{font-family:var(--display);font-weight:400;font-size:1.1rem;display:block}
+@media (max-width:820px){.hero{grid-template-columns:1fr;gap:28px}.hero-photo{order:-1;max-width:420px}.hero-photo .tag{left:12px}}
+.swatch-strip{display:flex;height:38px;overflow:hidden}
+.swatch-strip span{flex:1;min-width:0}
+.pains{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.pain{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;font-weight:500}
+.band{background:var(--band);color:var(--on-band)}
+.band .muted{color:color-mix(in srgb, var(--on-band) 70%, transparent)}
+.band .eyebrow{color:color-mix(in srgb, var(--on-band) 70%, transparent)}
+.looks{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.look{font:inherit;text-align:left;cursor:pointer;background:transparent;color:var(--on-band);border:1px solid color-mix(in srgb, var(--on-band) 30%, transparent);border-radius:14px;padding:16px;font-size:.95rem;line-height:1.4;transition:background .15s,border-color .15s}
+.look:hover{border-color:var(--rose)}
+.look[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:var(--on-rose)}
+.reveal{border:1px solid var(--rose);border-radius:16px;padding:22px}
+.reveal h3{font-size:1.7rem}
+.inside{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
+@media (max-width:820px){.inside{grid-template-columns:1fr}}
+.inside-photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:sticky;top:24px}
+.inside-photos img{width:100%;max-width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px;display:block}
+@media (max-width:820px){.inside-photos{position:static}}
+.feat{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:18px 0;border-top:1px solid var(--line)}
+.feat:first-child{border-top:0;padding-top:0}
+.feat i{width:30px;height:30px;border-radius:8px;display:block;margin-top:3px}
+.feat h3{font-size:1.15rem;margin-bottom:4px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.step::before{counter-increment:s;content:counter(s);font-family:var(--display);font-size:2.4rem;color:var(--rose);line-height:1}
+.meet{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+@media (max-width:820px){.meet{grid-template-columns:1fr}}
+.strip{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.strip img{width:100%;max-width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;display:block}
+.letter p+p{margin-top:14px}
+.not{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.not div{border-top:2px solid var(--rose);padding-top:12px}
+.price{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+@media (max-width:760px){.price{grid-template-columns:1fr}}
+.price ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.price li{display:flex;gap:10px}
+.price li::before{content:"";flex:none;width:8px;height:8px;margin-top:.6em;border-radius:50%;background:var(--rose)}
+.amount{font-family:var(--display);font-size:4rem;line-height:1}
+.amount s{font-size:1.4rem;color:var(--muted);margin-right:8px}
+.promise{display:flex;gap:14px;align-items:flex-start;border:1px dashed var(--rose);border-radius:14px;padding:16px;font-size:.95rem}
+details{border-top:1px solid var(--line);padding:18px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);font-size:1.4rem;line-height:1;color:var(--rose)}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:var(--muted)}
+footer{padding-block:40px 60px;font-size:.84rem;color:var(--muted)}
+.inside>*,.meet>*,.hero>*,.inside-photos>*,.strip>*{min-width:0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="in top">
+<span class="sign" aria-label="Sophie Bennett">Sophie Bennett</span>
+<span style="display:flex;gap:18px;align-items:center"><a href="/app">Already bought? Open the app</a><a href="#buy">Get The Style Reset</a></span>
+</header>
+<main>
+<div class="in hero">
+<div class="stack" style="gap:22px">
+<span class="eyebrow">The Style Reset · for women who've lost their style</span>
+<h1>You're not too old to look stylish. You're dressing for a version of you that doesn't exist anymore.</h1>
+<p style="font-size:1.15rem">The Style Reset finds your style, your best colours and outfits from clothes you <em>already own</em>. Four minutes on your phone. No new wardrobe required.</p>
+<div class="stack" style="gap:12px;align-items:flex-start">
+<a class="buy" href="#buy" data-checkout>Get The Style Reset <small>$27</small></a>
+<div class="reassure"><span>Instant access</span><span>Works on your phone</span><span>14-day money-back promise</span></div>
+</div>
+</div>
+<figure class="hero-photo" style="margin:0">
+<img src="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261030_153635_0f261661-566c-444e-982c-abdd2c81a864.png" alt="Sophie, 39, smiling in an oatmeal jumper at home">
+<figcaption class="tag"><b>"You don't need more clothes."</b>You need to know what works on you.</figcaption>
+</figure>
+</div>
+<div class="swatch-strip" aria-hidden="true">
+<span style="background:#C99AA2"></span><span style="background:#3C4A66"></span><span style="background:#E97F6C"></span><span style="background:#C19A6B"></span><span style="background:#1F5F63"></span><span style="background:#E3B5AE"></span><span style="background:#6B6A3A"></span><span style="background:#B04A6A"></span><span style="background:#D8C8B4"></span><span style="background:#2350A8"></span><span style="background:#C9982E"></span><span style="background:#9AAE93"></span>
+</div>
+<section>
+<div class="in stack" style="gap:28px">
+<div class="stack narrow"><span class="eyebrow">Sound familiar?</span><h2>A wardrobe full of clothes and nothing to wear.</h2></div>
+<div class="pains">
+<div class="pain">You stand in front of the wardrobe for 15 minutes, then put on the same jeans.</div>
+<div class="pain">You've got clothes with the tags still on that "didn't look right".</div>
+<div class="pain">You feel frumpy, and you're not sure when it started.</div>
+<div class="pain">Leggings and a hoodie have quietly become your uniform.</div>
+<div class="pain">Your body changed after kids, and your clothes never caught up.</div>
+<div class="pain">You save outfits on Instagram that never look the same on you.</div>
+</div>
+<p class="narrow" style="font-size:1.1rem">It isn't your body and it isn't your age. You've been buying clothes one at a time, for a life that changed. The fix is knowing <b>what suits you, what goes together, and what's missing</b>. That's exactly what The Style Reset gives you.</p>
+</div>
+</section>
+<section class="band" id="teaser">
+<div class="in stack" style="gap:24px">
+<div class="stack narrow"><span class="eyebrow">Free taster · 10 seconds</span><h2>What's your style personality?</h2><p class="muted">Saturday lunch with the girls. Which outfit would you love to walk out in?</p></div>
+<div class="looks" role="group" aria-label="Pick an outfit">
+<button class="look" data-a="RC" aria-pressed="false">Straight jeans, oatmeal jumper, trench and white trainers</button>
+<button class="look" data-a="PM" aria-pressed="false">Wide-leg camel trousers, tucked black knit and loafers</button>
+<button class="look" data-a="SF" aria-pressed="false">Pleated midi skirt, soft cardigan and ballet flats</button>
+<button class="look" data-a="EB" aria-pressed="false">Printed midi dress, denim jacket and tan boots</button>
+<button class="look" data-a="ME" aria-pressed="false">Black jeans, white tee, leather jacket and Chelsea boots</button>
+<button class="look" data-a="BP" aria-pressed="false">Bright pink jumper, jeans and colourful trainers</button>
+</div>
+<div class="reveal stack" id="reveal" hidden aria-live="polite"></div>
+</div>
+</section>
+<section>
+<div class="in inside">
+<div class="inside-photos">
+<img src="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261029_191747_ffa7a514-67c2-4ddd-8e07-364c80cb0b3e.png" alt="Sophie at her kitchen table with a laptop" loading="lazy">
+<img src="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261029_191746_7b3ad3ef-09c5-4935-91e5-92bc597d1475.png" alt="Sophie holding colour swatches by her face" loading="lazy">
+<img src="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261030_153710_d458f5ba-b26b-4e68-bcab-b3211dd1f71f.png" alt="Outfit formula: black blazer, white tee and jeans" loading="lazy">
+<img src="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261030_153723_14e40b71-e1f3-4182-9428-9323f6a35a25.png" alt="Outfit formula: printed midi dress, denim jacket and trainers" loading="lazy">
+</div>
+<div class="stack" style="gap:24px">
+<div class="stack"><span class="eyebrow">What's inside</span><h2>Your own personal stylist, in your pocket.</h2></div>
+<div>
+<div class="feat"><i style="background:#C99AA2"></i><div><h3>Your Style Profile</h3><p class="muted">Which of six style personalities you are, the words that describe you, and the key pieces that make your look work.</p></div></div>
+<div class="feat"><i style="background:#C19A6B"></i><div><h3>Your Colours</h3><p class="muted">A starting palette of neutrals and best colours to wear near your face, plus the shades to keep below the waist.</p></div></div>
+<div class="feat"><i style="background:#9AAE93"></i><div><h3>Your Fit Fixes</h3><p class="muted">Practical tips for what you want your clothes to do: show your waist, lengthen your legs, skim your middle, cover your arms.</p></div></div>
+<div class="feat"><i style="background:#3C4A66"></i><div><h3>Outfit Formulas</h3><p class="muted">Six copy-and-paste formulas for school run, work, weekends and evenings, written for your style.</p></div></div>
+<div class="feat"><i style="background:#E97F6C"></i><div><h3>Outfit Builder</h3><p class="muted">Tap what's already in your wardrobe and get outfits built from it, sorted by occasion. Save your favourites.</p></div></div>
+<div class="feat"><i style="background:#1F5F63"></i><div><h3>Smart Shopping List</h3><p class="muted">The few pieces that unlock the most new outfits, in your colours, matched to your budget. Everything else, you already have.</p></div></div>
+<div class="feat"><i style="background:#B04A6A"></i><div><h3>The 7-Day Style Reset</h3><p class="muted">One small task a day, from the 20-minute wardrobe edit to laying out Monday's outfit. Tick them off as you go.</p></div></div>
+</div>
+</div>
+</div>
+</section>
+<section style="padding-top:0">
+<div class="in stack" style="gap:28px">
+<div class="stack narrow"><span class="eyebrow">How it works</span><h2>Four minutes now. Easier mornings for good.</h2></div>
+<div class="steps">
+<div class="step"><h3>Take the quiz</h3><p class="muted">Twelve quick questions about your life, your style and your colouring. No photos, no measuring tape.</p></div>
+<div class="step"><h3>Get your results</h3><p class="muted">Your profile, colours, fit fixes and outfit formulas appear straight away, on your phone.</p></div>
+<div class="step"><h3>Do your 7-day reset</h3><p class="muted">Add your clothes, build outfits from them and follow one small step a day.</p></div>
+</div>
+</div>
+</section>
+<section style="background:var(--card);border-block:1px solid var(--line)">
+<div class="in meet">
+<div class="strip">
+<img src="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261029_191746_4e9c7102-baad-4fdf-975a-e619b7573c4c.png" alt="Sophie on her bedroom floor surrounded by clothes" loading="lazy">
+<img src="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261030_153710_08eba48b-f116-4810-a92e-d8249950d643.png" alt="Outfit formula: straight jeans, chunky knit, white trainers" loading="lazy">
+<img src="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261030_153637_ed695788-439a-4d67-b0d1-c57fb5699a88.png" alt="Outfit formula: Breton top, dark jeans, trench" loading="lazy">
+<img src="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261030_153721_a99be749-cf54-4ce9-b7cc-a9ec05d88f98.png" alt="Outfit formula: leggings, long cardigan, leather trainers" loading="lazy">
+</div>
+<div class="stack letter">
+<span class="eyebrow">Meet Sophie</span>
+<h2>Hi, I'm Sophie.</h2>
+<p>I'm 39, I live in Surrey with Tom, our two little ones and Ralph the cockapoo. A few years ago I realised I'd stopped getting dressed and started just getting covered. Leggings, the same jumper, a coat over the top.</p>
+<p>I didn't need a new wardrobe. I needed to know what actually suited me now, and how to put it together on a Tuesday at 8am. So I made the tool I wished I'd had.</p>
+<p>The Style Reset is everything I'd tell you if we were sitting on your bedroom floor, surrounded by clothes, with a cup of tea.</p>
+<span class="sign" style="font-size:2.6rem">Sophie x</span>
+<p class="muted" style="font-size:.84rem">Sophie is an AI-created character. The styling advice and the app are real.</p>
+</div>
+</div>
+</section>
+<section>
+<div class="in stack" style="gap:24px">
+<div class="stack narrow"><span class="eyebrow">What this isn't</span><h2>No hauls. No rules. No "dress for your age".</h2></div>
+<div class="not">
+<div><h3>Not a shopping list in disguise</h3><p class="muted">Most of your outfits come from what you already own.</p></div>
+<div><h3>Not about changing your body</h3><p class="muted">It's about clothes doing more of the work for the body you have today.</p></div>
+<div><h3>Not fashion rules</h3><p class="muted">Formulas you can copy, ignore or make your own.</p></div>
+</div>
+</div>
+</section>
+<section id="buy" style="padding-top:0">
+<div class="in stack" style="gap:20px">
+<div class="price">
+<div class="stack">
+<span class="eyebrow">The Style Reset</span>
+<h2>Everything you need to love getting dressed again.</h2>
+<ul>
+<li>Your personal Style Profile and key pieces</li>
+<li>Your starting colour palette</li>
+<li>Fit fixes for what you want your clothes to do</li>
+<li>Six outfit formulas for real life</li>
+<li>The Outfit Builder, using clothes you own</li>
+<li>Your smart shopping list, matched to your budget</li>
+<li>The 7-Day Style Reset plan</li>
+</ul>
+</div>
+<div class="stack" style="align-items:flex-start;gap:14px">
+<p class="amount">$27</p>
+<p class="muted" style="font-size:.9rem">Launch price. One payment, yours to keep.</p>
+<a class="buy" href="#buy" data-checkout>Get instant access</a>
+</div>
+</div>
+<div class="promise"><span class="sign" style="font-size:2.2rem">♡</span><p><b>The 14-day "love it" promise.</b> Do the quiz and the first three days of your reset. If you don't feel clearer about what to wear, email us within 14 days for a full refund.</p></div>
+</div>
+</section>
+<section style="padding-top:8px">
+<div class="in narrow stack" style="gap:20px">
+<h2>Questions</h2>
+<div>
+<details><summary>Is this a colour analysis?</summary><p>It gives you a starting palette based on your answers about your skin, hair and contrast. It's a great place to start and test in daylight, but it isn't the same as an in-person colour analysis.</p></details>
+<details><summary>Do I need to upload photos of myself?</summary><p>No. Everything works from your answers and a quick tap-list of what's in your wardrobe.</p></details>
+<details><summary>Will it tell me to buy loads of new clothes?</summary><p>The opposite. Your outfits are built from what you own. The shopping list shows only the few pieces that unlock the most outfits, and if your budget is zero it'll tell you how to borrow or swap.</p></details>
+<details><summary>How do I get access?</summary><p>Straight after checkout you'll get your link and access code on screen and by email. It opens on your phone, tablet or laptop. Nothing to download.</p></details>
+<details><summary>Is Sophie a real person?</summary><p>Sophie is an AI-created character. We're upfront about that. The styling approach, the app and the support team are real.</p></details>
+<details><summary>Is my information private?</summary><p>Your quiz answers and wardrobe are saved in your own browser on your device. We only keep the email you buy with.</p></details>
+<details><summary>What if it's not for me?</summary><p>Email us within 14 days for a full refund under the "love it" promise.</p></details>
+</div>
+<a class="buy" href="#buy" data-checkout style="align-self:flex-start">Get The Style Reset <small>$27</small></a>
+</div>
+</section>
+</main>
+<footer class="in">
+<div class="stack" style="gap:8px">
+<span class="sign" style="font-size:1.8rem">Sophie Bennett</span>
+<p>The Style Reset · hello@thestylereset.co.uk · <a href="/app">Open the app</a></p>
+<p>Sophie Bennett is an AI-generated character created to share styling ideas. Results are a starting point for your own style, not professional advice.</p>
+</div>
+</footer>
+<script>
+const CHECKOUT_URL = "";
+if (CHECKOUT_URL) document.querySelectorAll("[data-checkout]").forEach(a => { a.href = CHECKOUT_URL; a.target = "_blank"; a.rel = "noopener"; });
+const T = {
+RC:["The Relaxed Classic","Jeans, a great knit and a good coat. Effortless, never boring.","Straight jeans + chunky knit + white trainers + crossbody"],
+PM:["The Polished Minimalist","Clean lines, fewer pieces, everything works together.","Wide-leg trousers + tucked fine knit + blazer + loafers"],
+SF:["The Soft Feminine","Pretty, gentle and a little romantic, without trying too hard.","Midi skirt + fitted knit + clean trainers"],
+EB:["The Easy Boho","Relaxed, warm and layered, like you just got back from somewhere lovely.","Printed midi dress + denim jacket + trainers"],
+ME:["The Modern Edge","Cool, a bit sharp, mostly black, never trying too hard.","Black jeans + white tee + leather jacket + boots"],
+BP:["The Bright & Playful","Colour, print and a bit of fun. Life's too short for beige.","Bright knit + jeans + white trainers"]
+};
+const reveal = document.getElementById("reveal");
+document.querySelectorAll(".look").forEach(b => b.addEventListener("click", () => {
+document.querySelectorAll(".look").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+const [name, tag, f] = T[b.dataset.a];
+reveal.innerHTML = `<span class="eyebrow">You might be</span><h3>${name}</h3><p>${tag}</p>
+<p class="muted">Try this tomorrow: <b style="color:var(--on-band)">${f}</b></p>
+<p class="muted">That's one answer out of twelve. Your full Style Reset adds your colours, fit fixes, six formulas and outfits built from your own wardrobe.</p>
+<a class="buy" href="${CHECKOUT_URL || "#buy"}" ${CHECKOUT_URL ? 'target="_blank" rel="noopener"' : ""} style="align-self:flex-start">Get my full profile <small>$27</small></a>`;
+reveal.hidden = false;
+}));
+</script>
+</body>
+</html>

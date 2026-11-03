@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261030_153635_0f261661-566c-444e-982c-abdd2c81a864.png">
+<link rel="icon" href="https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261030_153635_0f261661-566c-444e-982c-abdd2c81a864.png">
+<title>The Style Reset</title>
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600;700&family=Mrs+Saint+Delafield&display=swap">
+<style>
+:root{
+--paper:#F6EEEA; --card:#FFFDFB; --ink:#3A2620; --muted:#7D665E; --rose:#B9716C; --rose-soft:#EBD3CE; --oat:#E7DACD; --line:#E2D2C9; --ok:#4E7A5B; --on-rose:#FFFFFF;
+--display:"Gloock", Georgia, "Times New Roman", serif;
+--body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+--sign:"Mrs Saint Delafield", "Brush Script MT", cursive;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+--paper:#1D1614; --card:#271E1B; --ink:#F3E8E2; --muted:#B9A49B; --rose:#D99A94; --rose-soft:#47302D; --oat:#3A2E2A; --line:#3D302C; --ok:#8DC09C; --on-rose:#241614; color-scheme:dark}}
+:root[data-theme="dark"]{
+--paper:#1D1614; --card:#271E1B; --ink:#F3E8E2; --muted:#B9A49B; --rose:#D99A94; --rose-soft:#47302D; --oat:#3A2E2A; --line:#3D302C; --ok:#8DC09C; --on-rose:#241614; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--paper)}
+body{color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;padding-block:20px 64px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;text-wrap:balance;margin:0}
+h1{font-size:2.3rem}h2{font-size:1.65rem}h3{font-size:1.2rem}
+p{margin:0}
+.eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.sign{font-family:var(--sign);font-size:2.4rem;line-height:1;color:var(--rose)}
+.stack{display:flex;flex-direction:column;gap:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+button,.btn{font:inherit;cursor:pointer;border:0;border-radius:999px;padding:13px 22px;font-weight:600;background:var(--ink);color:var(--paper);transition:transform .12s ease, opacity .12s}
+button:active{transform:scale(.98)}
+.btn-rose{background:var(--rose);color:var(--on-rose)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-sm{padding:8px 14px;font-size:.86rem}
+button:focus-visible,input:focus-visible,select:focus-visible,label.opt:focus-within{outline:2px solid var(--rose);outline-offset:2px}
+button:disabled{opacity:.4;cursor:not-allowed}
+input,select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+label.field{display:flex;flex-direction:column;gap:6px;font-size:.86rem;font-weight:600}
+.err{color:var(--rose);font-size:.86rem;min-height:1.2em}
+.gate{display:flex;flex-direction:column;gap:18px;padding-top:18px}
+.gate-photo{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 25%;border-radius:18px;max-width:100%}
+.ai-note{font-size:.75rem;color:var(--muted)}
+.progress{height:4px;background:var(--oat);border-radius:4px;overflow:hidden}
+.progress span{display:block;height:100%;background:var(--rose);transition:width .3s ease}
+.opts{display:grid;grid-template-columns:1fr;gap:10px}
+label.opt{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;transition:border-color .15s, background .15s}
+label.opt input{position:absolute;opacity:0;pointer-events:none;width:1px}
+label.opt .tick{flex:none;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--muted);margin-top:2px;display:grid;place-items:center}
+label.opt.multi .tick{border-radius:6px}
+label.opt.on{border-color:var(--rose);background:var(--rose-soft)}
+label.opt.on .tick{background:var(--rose);border-color:var(--rose)}
+label.opt.on .tick::after{content:"";width:6px;height:10px;border:solid var(--on-rose);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.opt b{display:block;font-weight:600}
+.opt small{color:var(--muted);font-size:.84rem}
+.quiz-nav{display:flex;justify-content:space-between;gap:10px}
+.tabs{position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:var(--paper);display:flex;gap:6px;overflow-x:auto;padding:10px 0;margin:0 0 6px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--paper)}
+.tab{flex:none;background:transparent;color:var(--muted);border:1px solid var(--line);padding:8px 14px;font-size:.88rem}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.hero-res{display:grid;grid-template-columns:88px 1fr;gap:14px;align-items:center}
+.avatar{width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:50% 20%;max-width:100%}
+.pill{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--rose-soft);color:var(--ink);font-size:.8rem;font-weight:600}
+.list{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
+.formula{display:flex;flex-direction:column;gap:4px;padding:12px 0;border-top:1px solid var(--line)}
+.formula:first-child{border-top:0;padding-top:0}
+.formula .eq{font-weight:600}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:10px}
+.sw{display:flex;flex-direction:column;gap:6px;font-size:.8rem}
+.sw i{display:block;aspect-ratio:1/1;border-radius:10px;border:1px solid var(--line);max-width:100%}
+.quote{border-left:3px solid var(--rose);padding-left:14px}
+.quote p{font-family:var(--display);font-size:1.15rem;line-height:1.35}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--card);color:var(--ink);border:1px solid var(--line);padding:8px 12px;font-weight:500;font-size:.86rem}
+.chip.on{background:var(--rose-soft);border-color:var(--rose)}
+.items{display:flex;flex-direction:column}
+.item{display:grid;grid-template-columns:14px 1fr auto;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.item:first-child{border-top:0}
+.dot{width:14px;height:14px;border-radius:50%;border:1px solid var(--line)}
+.dot.neutral{background:var(--oat)}.dot.colour{background:var(--rose)}.dot.print{background:repeating-linear-gradient(45deg,var(--rose) 0 3px,var(--card) 3px 6px)}
+.xbtn{background:transparent;color:var(--muted);padding:4px 8px;font-size:1.1rem;border-radius:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:420px){.grid2{grid-template-columns:1fr}}
+.outfits{display:grid;grid-template-columns:1fr;gap:12px}
+.outfit{display:flex;flex-direction:column;gap:8px}
+.outfit ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.outfit li{display:flex;gap:8px;align-items:center}
+.outfit .why{font-size:.84rem;color:var(--muted)}
+.day{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:14px 0;border-top:1px solid var(--line)}
+.day:first-child{border-top:0}
+.day .num{font-family:var(--display);font-size:1.5rem;color:var(--rose);width:2ch}
+.day.done h3{text-decoration:line-through;text-decoration-color:var(--rose)}
+.check{display:flex;gap:8px;align-items:center;font-size:.88rem;margin-top:8px;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--rose)}
+.meter{display:flex;gap:4px}.meter span{flex:1;height:6px;border-radius:3px;background:var(--oat)}.meter span.on{background:var(--rose)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:999px;font-size:.88rem;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20}
+.toast.show{opacity:1}
+.sample-flag{background:var(--rose-soft);border-radius:10px;padding:10px 12px;font-size:.84rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const CONFIG = {
+// Codes shown on your checkout thank-you page / welcome email. Case-insensitive.
+accessCodes: ["SOPHIE29", "STYLERESET", "FOUNDING"],
+demoCode: "DEMO",
+salesPageUrl: "/",            // paste your sales page link
+supportEmail: "hello@thestylereset.co.uk"
+};
+const SOPHIE_IMG = "https://d8j0ntlcm91z4.cloudfront.net/user_31dsQ21D3CWtIfnHuBqpYwcAj2v/hf_20261030_153635_0f261661-566c-444e-982c-abdd2c81a864.png";
+const ARCH = {
+RC:{name:"The Relaxed Classic",tag:"Jeans, a great knit and a good coat. Effortless, never boring.",
+desc:"You love pieces that work hard and look quietly expensive. Your best outfits look like you didn't try, because the pieces were chosen well. Your trap is buying 'fun' things that don't go with anything you own.",
+words:["effortless","classic","easy"],
+pieces:["Dark straight-leg jeans","Fine-knit crew or V-neck in oatmeal","Breton striped top","Trench or camel coat","Crisp white shirt","Leather white trainers","Loafers","Gold hoops"],
+formulas:[
+{o:"school",eq:"Straight jeans + chunky knit + white trainers + crossbody",why:"Half-tuck the knit at the front so it doesn't swallow you."},
+{o:"school",eq:"Breton top + dark jeans + trench + loafers",why:"The trench left open does the 'put together' work for you."},
+{o:"work",eq:"Tailored trousers + fine knit + loafers + structured tote",why:"One fabric with some sheen (the knit) stops it looking flat."},
+{o:"weekend",eq:"Cream jeans + denim shirt + trainers",why:"Roll the sleeves twice and push them up. Instantly relaxed."},
+{o:"evening",eq:"Black jeans + silky cami + blazer + gold hoops",why:"Swap trainers for a pointed flat and you're dinner-ready."},
+{o:"work",eq:"Shirt under a crew knit (collar out) + straight trousers",why:"The collar frames your face and lifts a plain knit."}],
+avoid:"Trend pieces that only work with one outfit."},
+PM:{name:"The Polished Minimalist",tag:"Clean lines, fewer pieces, everything works together.",
+desc:"You feel best when nothing is fussy. You'd rather own ten brilliant things than forty okay ones. Your trap is outfits that tip into 'plain' when the fit or fabric isn't quite right.",
+words:["polished","sleek","calm"],
+pieces:["Wide-leg tailored trousers","Longline blazer","Heavyweight white tee","Fine-gauge merino knits","Long wool coat","Leather loafers","Minimal trainers","Structured bag"],
+formulas:[
+{o:"work",eq:"Wide-leg trousers + tucked fine knit + blazer + loafers",why:"Keep it to two colours. Tonal reads expensive."},
+{o:"school",eq:"Heavyweight tee + straight jeans + long coat + minimal trainers",why:"The long coat is the outfit. Everything else is quiet."},
+{o:"weekend",eq:"All one colour (oat, camel or navy) head to toe",why:"Different textures in one colour stop it looking flat."},
+{o:"evening",eq:"Black wide-leg trousers + black fine knit + statement earring",why:"One focal point only."},
+{o:"school",eq:"Knit set or matching knit + trousers + trainers",why:"Matching sets are a two-second outfit."},
+{o:"work",eq:"Shirt dress + belt + loafers",why:"Belt it loosely at your natural waist."}],
+avoid:"Too many colours in one outfit. Stick to two plus one accent."},
+SF:{name:"The Soft Feminine",tag:"Pretty, gentle and a little romantic, without trying too hard.",
+desc:"You light up in softness: fluid fabrics, gentle colours, a bit of movement. Your trap is outfits that feel too sweet or too 'occasion' for real life. The fix is mixing soft with something sturdier.",
+words:["soft","pretty","feminine"],
+pieces:["Satin or pleated midi skirt","Wrap dress","Soft cardigan","Blouse with a small detail","Ballet flats or Mary Janes","Fitted knit tee","Delicate gold necklace","Denim jacket to toughen it up"],
+formulas:[
+{o:"school",eq:"Midi skirt + fitted knit + clean trainers",why:"Trainers make a pretty skirt work at 8am."},
+{o:"work",eq:"Blouse + straight trousers + ballet flats",why:"Let the blouse be the one soft piece."},
+{o:"weekend",eq:"Wrap dress + denim jacket + trainers",why:"The denim stops it looking like a wedding outfit."},
+{o:"evening",eq:"Slip skirt + fine knit + heeled sandal",why:"Knit over silk is the easiest 'dressed up but not trying' combo."},
+{o:"school",eq:"Cardigan worn as a top + jeans + ballet flats",why:"Button it, tuck it, done."},
+{o:"work",eq:"Pleated midi + shirt + loafers",why:"The shirt adds structure so the skirt reads smart."}],
+avoid:"Head-to-toe 'sweet'. Always add one tougher piece."},
+EB:{name:"The Easy Boho",tag:"Relaxed, warm and layered, like you just got back from somewhere lovely.",
+desc:"You love texture, prints and pieces with a story. Your trap is too many layers or prints at once, which can tip into 'messy'. Keep one hero piece per outfit.",
+words:["relaxed","creative","warm"],
+pieces:["Printed midi dress","Denim jacket","Suede or tan ankle boots","Wide-leg linen trousers","Loose white shirt","Woven bag","Layered gold necklaces","Chunky cardigan"],
+formulas:[
+{o:"school",eq:"Printed midi dress + denim jacket + trainers",why:"One print, everything else plain."},
+{o:"weekend",eq:"Wide-leg linen trousers + tucked tee + woven bag",why:"Tuck the tee so the trousers don't drown you."},
+{o:"work",eq:"Loose shirt + straight jeans + ankle boots + belt",why:"The belt stops the shirt looking oversized."},
+{o:"evening",eq:"Printed dress + ankle boots + layered necklaces",why:"Boots keep it from going too sweet."},
+{o:"school",eq:"Chunky cardigan + plain tee + jeans + boots",why:"Let the cardigan be the texture moment."},
+{o:"weekend",eq:"Maxi skirt + fitted knit + trainers",why:"Fitted on top balances the volume below."}],
+avoid:"Two prints plus two textures at once. Pick one hero."},
+ME:{name:"The Modern Edge",tag:"Cool, a bit sharp, mostly black, never trying too hard.",
+desc:"You feel most like yourself in strong shapes and dark colours. Your trap is outfits going harsh or all-black-and-tired. Fix it with texture and one warm accent near your face.",
+words:["cool","edgy","confident"],
+pieces:["Black straight jeans","Leather or faux leather jacket","Oversized blazer","White and black tees","Chelsea or biker boots","Chunky trainers","Bold silver or gold jewellery","Slip skirt to soften"],
+formulas:[
+{o:"school",eq:"Black jeans + white tee + leather jacket + boots",why:"The classic. Roll the jeans once at the ankle."},
+{o:"work",eq:"Oversized blazer + fine knit + straight trousers + loafers",why:"Push the blazer sleeves up. Sharp but relaxed."},
+{o:"weekend",eq:"Grey marl sweatshirt + leather trousers or black jeans + trainers",why:"Soft top, tough bottom."},
+{o:"evening",eq:"Slip skirt + leather jacket + boots",why:"Hard and soft together is your whole look."},
+{o:"school",eq:"Black knit + black jeans + chunky trainers + statement earrings",why:"All-black needs texture or jewellery to look intentional."},
+{o:"work",eq:"Black tailored trousers + crisp white shirt + boots",why:"Undo one more button than you think."}],
+avoid:"Flat all-black with no texture or accent."},
+BP:{name:"The Bright & Playful",tag:"Colour, print and a bit of fun. Life's too short for beige.",
+desc:"You come alive in colour. Your trap is outfits that fight each other: too many brights, prints that clash. The fix is a neutral base with one or two happy pieces.",
+words:["fun","bright","confident"],
+pieces:["A colourful knit you love","Printed midi skirt","Straight jeans","Statement trainers","Bright bag","Striped top","Neutral blazer to calm things down","Colourful earrings"],
+formulas:[
+{o:"school",eq:"Bright knit + jeans + white trainers",why:"Colour on top, denim below. Can't go wrong."},
+{o:"work",eq:"Printed midi skirt + plain knit in a colour from the print + loafers",why:"Pull one colour out of the print."},
+{o:"weekend",eq:"Striped top + coloured trousers + trainers",why:"Stripes work as a neutral."},
+{o:"evening",eq:"Bright top + black trousers + statement earrings",why:"One bright, everything else black."},
+{o:"work",eq:"Neutral blazer + colourful tee + straight trousers",why:"The blazer makes the colour read grown-up."},
+{o:"school",eq:"Jeans + white tee + bright bag + bright trainers",why:"Accessories are the low-risk way to wear colour."}],
+avoid:"More than two bright colours at once."}
+};
+const PAL = {
+softCool:{name:"Soft Cool",desc:"Gentle, cool and slightly muted. You glow in soft colours with a hint of grey in them.",
+neutrals:[["Dove grey","#B9B7BA"],["Soft navy","#3C4A66"],["Cocoa grey","#7B6E6B"],["Soft white","#F2F0EC"]],
+colours:[["Dusty rose","#C99AA2"],["Powder blue","#A9BED6"],["Lavender","#B5A8C9"],["Blue sage","#8FA6A0"],["Raspberry","#B04A6A"],["Soft teal","#5F8E91"]],
+avoid:"Bright orange, mustard and harsh black right by your face.",metal:"Silver, rose gold, soft pearls"},
+clearCool:{name:"Clear Cool",desc:"Crisp and striking. You can carry strong, clear colour and real contrast.",
+neutrals:[["Black","#1C1C1E"],["Charcoal","#45464B"],["Crisp white","#FBFBFB"],["Navy","#1F2B4A"]],
+colours:[["Emerald","#0F7A5A"],["Cobalt","#2350A8"],["Fuchsia","#C2287A"],["True red","#C3202F"],["Icy pink","#F2D6E3"],["Royal purple","#5C2C86"]],
+avoid:"Beige, camel and dusty muted shades close to your face.",metal:"Silver, platinum, crystal"},
+warmLight:{name:"Warm Light",desc:"Fresh, warm and bright. Golden, clear colours make your skin glow.",
+neutrals:[["Cream","#F3E9D6"],["Camel","#C19A6B"],["Warm beige","#D9C2A5"],["Light navy","#3D4F78"]],
+colours:[["Coral","#E97F6C"],["Peach","#F2B494"],["Warm aqua","#4FB3A9"],["Golden yellow","#E9B949"],["Leaf green","#6FA35A"],["Poppy","#D9533F"]],
+avoid:"Black and icy pastels near your face. Swap black for navy.",metal:"Gold, brushed gold, warm wood"},
+richWarm:{name:"Rich Warm",desc:"Deep, earthy and golden. You suit colours that look like autumn leaves.",
+neutrals:[["Chocolate","#4E3426"],["Camel","#B4875A"],["Olive","#6B6A3A"],["Warm cream","#EFE3CC"]],
+colours:[["Rust","#B04E2C"],["Mustard","#C9982E"],["Deep teal","#1F5F63"],["Terracotta","#C06A4B"],["Forest","#2F5236"],["Burgundy","#6E2433"]],
+avoid:"Pastels, icy greys and bright fuchsia near your face.",metal:"Gold, bronze, tortoiseshell"},
+softNeutral:{name:"Soft Neutral",desc:"Balanced and soft. You can borrow from warm and cool, as long as nothing is too loud.",
+neutrals:[["Oatmeal","#D8C8B4"],["Taupe","#8E7F72"],["Stone","#C7C0B4"],["Denim","#5A6E8C"]],
+colours:[["Blush","#E3B5AE"],["Sage","#9AAE93"],["Dusty teal","#5E8B88"],["Soft coral","#E39A86"],["Mauve","#A9808F"],["Butter","#EEDB9E"]],
+avoid:"Neon brights and stark black-and-white contrast.",metal:"Gold or silver, mixed metals work"},
+deepNeutral:{name:"Deep Neutral",desc:"Rich and grounded. Deep, saturated colours with depth suit you best.",
+neutrals:[["Espresso","#3A2A23"],["Charcoal","#3E3F44"],["Ivory","#F4EEE2"],["Ink navy","#1E2740"]],
+colours:[["Berry","#8C2F4E"],["Deep teal","#155C61"],["Olive","#5E6235"],["Burgundy","#6B1F2E"],["Jade","#2E8A6E"],["Plum","#5D2E55"]],
+avoid:"Washed-out pastels near your face.",metal:"Gold or antique silver"}
+};
+const FIT = {
+waist:{t:"Show my waist",tips:["Half-tuck tops at the front.","Belt knits and blazers loosely at your natural waist.","Wrap dresses and wrap tops are your shortcut.","Choose high-rise bottoms so a tuck lands in the right place."]},
+legs:{t:"Make my legs look longer",tips:["High-rise trousers, full length, skimming the floor in your shoes.","Match shoes to trousers (or to your skin tone with skirts).","Low-cut fronts on shoes and pointed toes add length.","Cropped jackets that stop at your waist lengthen everything below."]},
+hips:{t:"Balance my hips",tips:["Straight or wide-leg trousers in darker colours.","Put detail and colour on top: collars, prints, statement earrings.","A-line skirts that skim rather than cling.","Structured shoulders on blazers balance the silhouette."]},
+tummy:{t:"Skim my middle",tips:["Wear layers open (blazer, cardigan, shirt) to create a long vertical line.","Choose fluid fabrics that skim, not clingy thin jersey.","High-rise, flat-front trousers with no front pleats.","V-necks draw the eye up and lengthen your top half."]},
+arms:{t:"Cover my arms comfortably",tips:["Elbow-length and three-quarter sleeves look deliberate.","Structured fabrics hold their shape better than stretchy ones.","Light open shirts over vests for summer.","Push sleeves up to just below the elbow."]},
+bust:{t:"Balance a bigger bust",tips:["V-necks and open collars, not high crew necks.","Avoid chest pockets and ruffles right on the bust.","Wrap styles and fine knits drape better than chunky ones.","A well-fitted bra changes how every top looks."]},
+petite:{t:"I'm petite (under 5′3″)",tips:["Tonal or one-colour outfits make you look taller.","Ankle-length or cropped trousers, not pooling hems.","Smaller prints and lighter-weight fabrics.","Shorter jackets and coats that hit at the hip or knee."]},
+comfort:{t:"Comfy without looking frumpy",tips:["Swap leggings for ponte or pull-on tailored trousers.","Choose knits with some structure (ribbed, fine-gauge).","Leather trainers look smarter than canvas.","One sharp piece (blazer, good coat, earring) lifts a comfy outfit."]}
+};
+const CAPSULE = [
+{id:"c1",name:"Dark straight-leg jeans",cat:"bottom",col:"neutral",vibe:"both",p:10},
+{id:"c2",name:"Tailored trousers",cat:"bottom",col:"neutral",vibe:"smart",p:8},
+{id:"c3",name:"White or cream tee",cat:"top",col:"neutral",vibe:"both",p:9},
+{id:"c4",name:"Fine-knit jumper (neutral)",cat:"top",col:"neutral",vibe:"both",p:9},
+{id:"c5",name:"Chunky knit",cat:"top",col:"neutral",vibe:"casual",p:6},
+{id:"c6",name:"Crisp shirt",cat:"top",col:"neutral",vibe:"smart",p:7},
+{id:"c7",name:"Blazer",cat:"layer",col:"neutral",vibe:"smart",p:9},
+{id:"c8",name:"Everyday coat or trench",cat:"layer",col:"neutral",vibe:"both",p:8},
+{id:"c9",name:"Clean white trainers",cat:"shoes",col:"neutral",vibe:"casual",p:9},
+{id:"c10",name:"Loafers or flats",cat:"shoes",col:"neutral",vibe:"smart",p:7},
+{id:"c11",name:"Ankle boots",cat:"shoes",col:"neutral",vibe:"both",p:6},
+{id:"c12",name:"Midi dress",cat:"dress",col:"neutral",vibe:"both",p:5},
+{id:"c13",name:"Everyday bag",cat:"bag",col:"neutral",vibe:"both",p:5},
+{id:"c14",name:"A going-out top",cat:"top",col:"colour",vibe:"smart",p:4}
+];
+const SIGNATURE = {
+RC:[{name:"Breton striped top",cat:"top",col:"print",vibe:"casual"},{name:"Denim shirt",cat:"top",col:"neutral",vibe:"casual"},{name:"Camel coat",cat:"layer",col:"neutral",vibe:"both"}],
+PM:[{name:"Wide-leg trousers",cat:"bottom",col:"neutral",vibe:"smart"},{name:"Longline blazer",cat:"layer",col:"neutral",vibe:"smart"},{name:"Knit co-ord",cat:"top",col:"neutral",vibe:"both"}],
+SF:[{name:"Satin midi skirt",cat:"bottom",col:"colour",vibe:"both"},{name:"Wrap dress",cat:"dress",col:"print",vibe:"both"},{name:"Ballet flats",cat:"shoes",col:"neutral",vibe:"both"}],
+EB:[{name:"Printed midi dress",cat:"dress",col:"print",vibe:"casual"},{name:"Denim jacket",cat:"layer",col:"neutral",vibe:"casual"},{name:"Woven bag",cat:"bag",col:"neutral",vibe:"casual"}],
+ME:[{name:"Leather jacket",cat:"layer",col:"neutral",vibe:"both"},{name:"Black straight jeans",cat:"bottom",col:"neutral",vibe:"both"},{name:"Chelsea boots",cat:"shoes",col:"neutral",vibe:"both"}],
+BP:[{name:"Colourful knit",cat:"top",col:"colour",vibe:"casual"},{name:"Printed midi skirt",cat:"bottom",col:"print",vibe:"both"},{name:"Bright bag",cat:"bag",col:"colour",vibe:"both"}]
+};
+const QUESTIONS = [
+{id:"name",type:"text",q:"First things first. What should I call you?",hint:"Just your first name."},
+{id:"week",type:"single",q:"What does a normal week look like for you?",opts:[
+{v:"home",l:"School run and working from home",s:"Comfy but want to look like I've made an effort"},
+{v:"office",l:"In an office three or more days",s:"Need to look smart without a uniform"},
+{v:"feet",l:"On my feet and running around all day",s:"Practical first"},
+{v:"mix",l:"A proper mix of everything",s:"Different every day"}]},
+{id:"grab",type:"single",q:"Saturday lunch with the girls. Which outfit would you love to walk out in?",opts:[
+{v:"RC",l:"Straight jeans, an oatmeal jumper, a trench and white trainers"},
+{v:"PM",l:"Wide-leg camel trousers, a tucked black knit and loafers"},
+{v:"SF",l:"A pleated midi skirt, a soft cardigan and ballet flats"},
+{v:"EB",l:"A printed midi dress, a denim jacket and tan boots"},
+{v:"ME",l:"Black jeans, a white tee, a leather jacket and Chelsea boots"},
+{v:"BP",l:"A bright pink jumper, jeans and colourful trainers"}]},
+{id:"words",type:"multi",max:3,q:"Pick up to three words you'd love people to use about your style.",opts:[
+{v:"RC",l:"Effortless"},{v:"RC2",l:"Classic"},{v:"PM",l:"Polished"},{v:"PM2",l:"Sleek"},{v:"SF",l:"Soft"},{v:"SF2",l:"Pretty"},
+{v:"EB",l:"Relaxed"},{v:"EB2",l:"Creative"},{v:"ME",l:"Cool"},{v:"ME2",l:"Edgy"},{v:"BP",l:"Fun"},{v:"BP2",l:"Bold"}]},
+{id:"reach",type:"multi",max:2,q:"Be honest. What do you actually reach for most?",opts:[
+{v:"RC",l:"Jeans and jumpers"},{v:"PM",l:"Tailored trousers and simple tops"},{v:"SF",l:"Dresses and skirts"},
+{v:"EB",l:"Flowy pieces and layers"},{v:"ME",l:"Anything black"},{v:"BP",l:"Colour and print"},{v:"comfort",l:"Leggings and hoodies",s:"No judgement. We'll fix this."}]},
+{id:"pain",type:"single",q:"What's the most frustrating thing about getting dressed right now?",opts:[
+{v:"together",l:"Nothing goes together"},{v:"frumpy",l:"I feel frumpy or older than I am"},
+{v:"body",l:"My clothes don't suit my body as it is now"},{v:"toomuch",l:"Wardrobe's full, nothing to wear"},{v:"time",l:"I have no time in the mornings"}]},
+{id:"veins",type:"single",q:"Look at the veins on the inside of your wrist in daylight. They look…",opts:[
+{v:"cool",l:"Blue or purple"},{v:"warm",l:"Green or olive"},{v:"neutral",l:"A mix, or I can't tell"}]},
+{id:"metal",type:"single",q:"Which jewellery do people compliment you in?",opts:[
+{v:"cool",l:"Silver"},{v:"warm",l:"Gold"},{v:"neutral",l:"Both look fine"}]},
+{id:"hair",type:"single",q:"What's your natural hair colour (or what it was before any greys)?",opts:[
+{v:"light",l:"Blonde or light brown"},{v:"medium",l:"Mid brown, auburn or red"},{v:"deep",l:"Dark brown or black"}]},
+{id:"contrast",type:"single",q:"Look in the mirror. How much do your hair, skin and eyes stand out from each other?",opts:[
+{v:"soft",l:"They blend together softly"},{v:"medium",l:"Some contrast"},{v:"high",l:"Very striking, like dark hair and pale skin"}]},
+{id:"fit",type:"multi",max:3,q:"What do you want your clothes to do for you? Pick up to three.",opts:Object.entries(FIT).map(([v,o])=>({v,l:o.t}))},
+{id:"budget",type:"single",q:"Roughly how much do you spend on clothes in a month?",opts:[
+{v:"0",l:"Nothing right now",s:"We'll work with what you own"},{v:"50",l:"Up to $50"},{v:"100",l:"Around $100"},{v:"200",l:"$200 or more"}]}
+];
+const DAYS = [
+{t:"The 20-minute edit",d:"Set a timer. Pull out anything you haven't worn in a year, anything that doesn't fit right now, and anything that doesn't match your three style words. Put it in a bag, not the bin. You're allowed to change your mind."},
+{t:"Find your uniform",d:"Pick one outfit formula from your Profile tab that you can make with what you own. Wear it today. Notice how it feels."},
+{t:"The colour test",d:"Stand by a window. Hold three things from your palette under your chin, then three from your 'avoid' list. Keep the colours that make your skin look brighter and your eyes clearer."},
+{t:"Fit fixes",d:"Try your fit tips on two outfits you already own. Half-tuck, roll a sleeve, swap a shoe. Note anything that just needs a tailor (hems and waists are cheap fixes)."},
+{t:"Build five outfits",d:"Add your pieces in the Wardrobe tab, then build five outfits in Outfits. Take a mirror photo of each so you have an outfit menu for busy mornings."},
+{t:"The one-piece shop",d:"Check your Shopping list. Buy, borrow or swap one piece only, the one that unlocks the most outfits. Second-hand counts."},
+{t:"Wear your favourite",d:"Wear the outfit that made you feel most like you this week. Then lay out Monday's outfit tonight. That's the habit that sticks."}
+];
+const KEY="styleReset.v1";
+let S = load() || {unlocked:false,email:"",answers:{},step:0,result:null,wardrobe:[],days:[],saved:[],sample:false};
+function load(){try{const r=localStorage.getItem(KEY);return r?JSON.parse(r):null}catch(e){return null}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+let view = S.result ? "results" : (S.unlocked ? "quiz" : "gate");
+let tab = "profile";
+let occasion = null;
+let seed = 1;
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove("show"),1800)}
+function compute(a){
+const score={RC:0,PM:0,SF:0,EB:0,ME:0,BP:0};
+if(a.grab) score[a.grab]+=3;
+(a.words||[]).forEach(w=>score[w.slice(0,2)]+=2);
+(a.reach||[]).forEach(r=>{if(score[r]!==undefined)score[r]+=1.5});
+if(a.week==="office"){score.PM+=.5}
+const ranked=Object.entries(score).sort((x,y)=>y[1]-x[1]);
+const primary=ranked[0][0], secondary=ranked[1][1]>0?ranked[1][0]:null;
+let u=0; ({cool:-1,warm:1,neutral:0})[a.veins]!==undefined&&(u+=({cool:-1,warm:1,neutral:0})[a.veins]);
+u+=({cool:-1,warm:1,neutral:0})[a.metal]||0;
+const under = u<=-1?"cool":u>=1?"warm":"neutral";
+const deep = a.hair==="deep" || a.contrast==="high";
+const pal = under==="cool"?(deep?"clearCool":"softCool"):under==="warm"?((deep||a.hair==="medium")?"richWarm":"warmLight"):(deep?"deepNeutral":"softNeutral");
+return {primary,secondary,palette:pal,fit:(a.fit||[]).slice(0,3),comfort:(a.reach||[]).includes("comfort")};
+}
+function render(){
+const app=$("#app");
+if(view==="gate") app.innerHTML=gateHTML();
+else if(view==="quiz") app.innerHTML=quizHTML();
+else app.innerHTML=resultsHTML();
+bind();
+}
+function gateHTML(){return `
+<section class="gate">
+<img class="gate-photo" src="${SOPHIE_IMG}" alt="Sophie Bennett smiling in an oatmeal jumper">
+<div class="stack">
+<span class="sign">Sophie</span>
+<h1>The Style Reset</h1>
+<p class="muted">Your personal style profile, your colours and outfits from clothes you already own. Takes about four minutes.</p>
+</div>
+<form class="card stack" id="gateForm" novalidate>
+<label class="field" for="email">Email you bought with<input id="email" type="email" autocomplete="email" placeholder="you@example.com" value="${esc(S.email)}"></label>
+<label class="field" for="code">Access code<input id="code" type="text" autocomplete="off" autocapitalize="characters" placeholder="From your welcome email"></label>
+<p class="err" id="gateErr"></p>
+<button class="btn-rose" type="submit">Start my Style Reset</button>
+<p class="small muted">No code yet? <a href="${CONFIG.salesPageUrl}" style="color:var(--rose)">Get The Style Reset</a></p>
+</form>
+<p class="ai-note">Sophie is an AI-created character. The advice and the tool are real. Your answers stay on this device.</p>
+</section>`}
+function quizHTML(){
+const q=QUESTIONS[S.step], a=S.answers[q.id], n=QUESTIONS.length;
+let body="";
+if(q.type==="text"){
+body=`<label class="field" for="q_${q.id}"><span class="muted small">${esc(q.hint)}</span><input id="q_${q.id}" type="text" maxlength="30" value="${esc(a||"")}" autocomplete="given-name"></label>`;
+} else {
+const multi=q.type==="multi";
+body=`<div class="opts" role="${multi?"group":"radiogroup"}">`+q.opts.map((o,i)=>{
+const on=multi?(a||[]).includes(o.v):a===o.v;
+return `<label class="opt ${multi?"multi":""} ${on?"on":""}" for="o_${q.id}_${i}"><input id="o_${q.id}_${i}" type="${multi?"checkbox":"radio"}" name="${q.id}" value="${o.v}" ${on?"checked":""}><span class="tick" aria-hidden="true"></span><span><b>${esc(o.l)}</b>${o.s?`<small>${esc(o.s)}</small>`:""}</span></label>`}).join("")+`</div>`;
+if(multi) body+=`<p class="small muted">Choose up to ${q.max}.</p>`;
+}
+const ok = q.type==="text"? !!(a&&a.trim()) : q.type==="multi"? (a&&a.length>0) : !!a;
+return `
+<section class="stack" style="padding-top:10px">
+<div class="row" style="justify-content:space-between"><span class="eyebrow">Question ${S.step+1} of ${n}</span><span class="eyebrow">${Math.round(S.step/n*100)}%</span></div>
+<div class="progress"><span style="width:${S.step/n*100}%"></span></div>
+<h2>${esc(q.q)}</h2>
+${body}
+<div class="quiz-nav">
+<button class="btn-ghost" id="back" ${S.step===0?"disabled":""}>Back</button>
+<button class="btn-rose" id="next" ${ok?"":"disabled"}>${S.step===n-1?"See my results":"Next"}</button>
+</div>
+</section>`}
+function resultsHTML(){
+const r=S.result, A=ARCH[r.primary], name=S.answers.name||"you";
+const tabs=[["profile","Profile"],["colours","Colours"],["fit","Fit"],["wardrobe","Wardrobe"],["outfits","Outfits"],["shop","Shopping list"],["reset","7-day reset"]];
+return `
+${S.sample?`<p class="sample-flag">You're looking at an <b>example</b> profile. <button class="btn-sm btn-ghost" id="startReal">Take the quiz for your own</button></p>`:""}
+<div class="hero-res" style="margin:14px 0 4px">
+<img class="avatar" src="${SOPHIE_IMG}" alt="Sophie">
+<div class="stack" style="gap:4px;min-width:0"><span class="eyebrow">${esc(name)}'s Style Reset</span><h1 style="font-size:1.9rem">${A.name}</h1></div>
+</div>
+<nav class="tabs" role="tablist" aria-label="Your results">${tabs.map(([k,l])=>`<button class="tab" role="tab" data-tab="${k}" aria-selected="${tab===k}">${l}</button>`).join("")}</nav>
+<section class="stack" id="panel">${panel()}</section>
+<div class="row" style="justify-content:center;margin-top:28px">
+<button class="btn-ghost btn-sm" id="retake">Retake the quiz</button>
+</div>
+<p class="ai-note" style="text-align:center;margin-top:12px">Sophie is an AI-created character. Questions? ${esc(CONFIG.supportEmail)}</p>`}
+function panel(){
+const r=S.result, A=ARCH[r.primary];
+if(tab==="profile"){
+const B=r.secondary?ARCH[r.secondary]:null;
+return `
+<div class="card stack"><p style="font-family:var(--display);font-size:1.25rem;line-height:1.3">${A.tag}</p><p>${A.desc}</p>
+<div class="row">${A.words.map(w=>`<span class="pill">${w}</span>`).join("")}</div>
+${B?`<p class="small muted">With a touch of <b>${B.name.replace("The ","")}</b>. Borrow its formulas when you want a change.</p>`:""}</div>
+<div class="card stack"><h3>Your outfit formulas</h3><div>${A.formulas.map(f=>`<div class="formula"><span class="eyebrow">${label(f.o)}</span><span class="eq">${f.eq}</span><span class="small muted">${f.why}</span></div>`).join("")}</div></div>
+<div class="card stack"><h3>Your key pieces</h3><ul class="list">${A.pieces.map(p=>`<li>${p}</li>`).join("")}</ul></div>
+<div class="quote"><p>${sophieNote(r)}</p><span class="sign" style="font-size:1.8rem">Sophie x</span></div>
+<div class="card"><p class="small"><b>Watch out for:</b> ${A.avoid}</p></div>`}
+if(tab==="colours"){const P=PAL[r.palette];return `
+<div class="card stack"><span class="eyebrow">Your starting palette</span><h2>${P.name}</h2><p>${P.desc}</p></div>
+<div class="card stack"><h3>Your neutrals</h3><p class="small muted">Build 80% of your wardrobe from these.</p><div class="swatches">${P.neutrals.map(sw).join("")}</div></div>
+<div class="card stack"><h3>Your best colours</h3><p class="small muted">Wear these near your face: tops, scarves, knits.</p><div class="swatches">${P.colours.map(sw).join("")}</div></div>
+<div class="card stack"><p><b>Metals:</b> ${P.metal}</p><p><b>Keep away from your face:</b> ${P.avoid}</p><p class="small muted">Wear "avoid" colours below the waist and they're fine. This is a starting point built from your answers, not a professional colour analysis. Test in daylight (Day 3 of your reset) and trust your mirror.</p></div>`}
+if(tab==="fit"){const f=r.fit.length?r.fit:["comfort"];return f.map(k=>`
+<div class="card stack"><h3>${FIT[k].t}</h3><ul class="list">${FIT[k].tips.map(t=>`<li>${t}</li>`).join("")}</ul></div>`).join("")+`<p class="small muted">None of this is about changing your body. It's about clothes doing more of the work.</p>`}
+if(tab==="wardrobe") return wardrobeHTML();
+if(tab==="outfits") return outfitsHTML();
+if(tab==="shop") return shopHTML();
+if(tab==="reset"){const done=S.days.filter(Boolean).length;return `
+<div class="card stack"><div class="row" style="justify-content:space-between"><h3>7-day Style Reset</h3><span class="small muted">${done} of 7 done</span></div><div class="meter">${DAYS.map((_,i)=>`<span class="${S.days[i]?"on":""}"></span>`).join("")}</div></div>
+<div class="card">${DAYS.map((d,i)=>`<div class="day ${S.days[i]?"done":""}"><span class="num">${i+1}</span><div class="stack" style="gap:6px;min-width:0"><h3>${d.t}</h3><p class="small">${d.d}</p><label class="check" for="day${i}"><input type="checkbox" id="day${i}" data-day="${i}" ${S.days[i]?"checked":""}> Done</label></div></div>`).join("")}</div>
+${done===7?`<div class="card stack"><h3>You did it.</h3><p>Seven days, and you know what works on you. Screenshot your favourite outfit and tag me. I'd love to see it.</p></div>`:""}`}
+}
+const label=o=>({school:"School run",work:"Work",weekend:"Weekend",evening:"Evening"})[o];
+const sw=([n,h])=>`<div class="sw"><i style="background:${h}"></i><span>${n}</span></div>`;
+function sophieNote(r){
+const p=S.answers.pain;
+const m={together:"Your problem isn't your clothes, it's that they were bought one at a time. Start with your formulas and a two-neutral base and suddenly everything talks to each other.",
+frumpy:"Frumpy almost always comes down to fit and proportion, not age. Tuck something, add one sharp piece, and wear your colours near your face.",
+body:"Your body changed. Your wardrobe didn't get the memo. Dress the body you have today. Your fit tips are where to start.",
+toomuch:"A full wardrobe with nothing to wear means too many 'one-off' pieces. Day 1's edit will feel amazing, I promise.",
+time:"Busy mornings need a uniform, not more choice. Pick two formulas and rotate them. Decision made."};
+return m[p]||m.together;
+}
+function wardrobeHTML(){
+const owned=new Set(S.wardrobe.map(i=>i.from).filter(Boolean));
+const quick=[...CAPSULE,...SIGNATURE[S.result.primary].map((x,i)=>({...x,id:"s"+i}))];
+return `
+<div class="card stack"><h3>Tap what you already own</h3><p class="small muted">Start with the basics. You can add anything else below.</p>
+<div class="chips">${quick.map(q=>`<button class="chip ${owned.has(q.id)?"on":""}" data-quick="${q.id}" aria-pressed="${owned.has(q.id)}">${q.name}</button>`).join("")}</div></div>
+<form class="card stack" id="addForm"><h3>Add your own piece</h3>
+<label class="field" for="iname">What is it?<input id="iname" placeholder="e.g. Green cashmere jumper" maxlength="50"></label>
+<div class="grid2">
+<label class="field" for="icat">Type<select id="icat"><option value="top">Top</option><option value="bottom">Trousers, jeans or skirt</option><option value="dress">Dress or jumpsuit</option><option value="layer">Jacket, coat or blazer</option><option value="shoes">Shoes</option><option value="bag">Bag</option></select></label>
+<label class="field" for="icol">Colour<select id="icol"><option value="neutral">Neutral (black, white, grey, beige, navy, denim)</option><option value="colour">A colour</option><option value="print">Print or pattern</option></select></label>
+</div>
+<label class="field" for="ivibe">Dressy?<select id="ivibe"><option value="both">Works for anything</option><option value="casual">Casual</option><option value="smart">Smart</option></select></label>
+<button class="btn" type="submit">Add to my wardrobe</button></form>
+<div class="card stack"><div class="row" style="justify-content:space-between"><h3>My wardrobe</h3><span class="small muted">${S.wardrobe.length} pieces</span></div>
+${S.wardrobe.length?`<div class="items">${S.wardrobe.map(i=>`<div class="item"><span class="dot ${i.col}" aria-hidden="true"></span><span>${esc(i.name)} <span class="small muted">· ${catName(i.cat)}</span></span><button class="xbtn" data-del="${i.id}" aria-label="Remove ${esc(i.name)}">×</button></div>`).join("")}</div>`:`<p class="muted small">Nothing yet. Tap the basics you own above and your outfits will appear in the Outfits tab.</p>`}</div>`}
+const catName=c=>({top:"top",bottom:"bottom",dress:"dress",layer:"layer",shoes:"shoes",bag:"bag"})[c];
+function outfitsHTML(){
+const occ=occasion||({home:"school",office:"work",feet:"weekend",mix:"school"})[S.answers.week]||"school";
+const list=buildOutfits(occ);
+const A=ARCH[S.result.primary];
+const formula=A.formulas.find(f=>f.o===occ)||A.formulas[0];
+return `
+<div class="card stack"><h3>Outfits from your wardrobe</h3>
+<div class="chips">${["school","work","weekend","evening"].map(o=>`<button class="chip ${o===occ?"on":""}" data-occ="${o}" aria-pressed="${o===occ}">${label(o)}</button>`).join("")}</div>
+<p class="small muted">Your ${label(occ).toLowerCase()} formula: <b>${formula.eq}</b></p></div>
+${list.length?`<div class="outfits">${list.map((o,i)=>`<div class="card outfit"><span class="eyebrow">Outfit ${i+1}</span><ul>${o.items.map(x=>`<li><span class="dot ${x.col}" aria-hidden="true"></span>${esc(x.name)}</li>`).join("")}</ul><p class="why">${o.why}</p><div class="row"><button class="btn-sm btn-ghost" data-save="${encodeURIComponent(o.items.map(x=>x.name).join(" + "))}">Save outfit</button></div></div>`).join("")}</div>
+<button class="btn-ghost" id="shuffle">Show me different outfits</button>`
+:`<div class="card stack"><p>I need at least a top, a bottom (or a dress) and some shoes to build outfits.</p><button class="btn-rose" data-tab="wardrobe">Add pieces to my wardrobe</button></div>`}
+${S.saved.length?`<div class="card stack"><h3>Saved outfits</h3><ul class="list">${S.saved.map((s,i)=>`<li>${esc(s)} <button class="xbtn" data-unsave="${i}" aria-label="Remove saved outfit">×</button></li>`).join("")}</ul></div>`:""}`}
+function rng(){seed=(seed*16807)%2147483647;return seed/2147483647}
+function buildOutfits(occ){
+const W=S.wardrobe, fits=i=>occ==="work"||occ==="evening"? i.vibe!=="casual" || i.cat==="top"&&occ==="evening" : i.vibe!=="smart" || i.cat==="layer"||i.cat==="bottom";
+const by=c=>W.filter(i=>i.cat===c&&fits(i));
+const tops=by("top"),bots=by("bottom"),dresses=by("dress"),layers=by("layer"),shoes=W.filter(i=>i.cat==="shoes"&&(occ==="weekend"||occ==="school"?true:i.vibe!=="casual")),bags=by("bag");
+const shoesAll=shoes.length?shoes:W.filter(i=>i.cat==="shoes");
+if(!shoesAll.length) return [];
+const bases=[];tops.forEach(t=>bots.forEach(b=>bases.push([t,b])));dresses.forEach(d=>bases.push([d]));
+const out=[];
+bases.forEach(base=>{
+const statement=base.filter(x=>x.col!=="neutral").length;
+if(statement>1) return;
+const layer=layers.length&&(occ!=="weekend"||rng()>.4)?layers[Math.floor(rng()*layers.length)]:null;
+if(layer&&layer.col!=="neutral"&&statement) return;
+const shoe=shoesAll[Math.floor(rng()*shoesAll.length)];
+const bag=bags.length&&rng()>.5?bags[Math.floor(rng()*bags.length)]:null;
+const items=[...base,layer,shoe,bag].filter(Boolean);
+out.push({items,score:rng()+(layer?.3:0)+(statement?.2:0),why:why(items,statement)});
+});
+return out.sort((a,b)=>b.score-a.score).slice(0,6);
+}
+function why(items,statement){
+const r=S.result, fitK=r.fit[0];
+const parts=[];
+parts.push(statement?"One statement piece, everything else neutral, so it looks intentional.":"All neutrals: add your best colour near your face with a scarf or earring.");
+if(items.some(i=>i.cat==="top")&&items.some(i=>i.cat==="bottom")&&(fitK==="waist"||fitK==="legs"))parts.push("Half-tuck the top.");
+if(items.some(i=>i.cat==="layer")&&fitK==="tummy")parts.push("Wear the layer open.");
+return parts.join(" ");
+}
+function shopHTML(){
+const owned=new Set(S.wardrobe.map(i=>i.from).filter(Boolean));
+const sig=SIGNATURE[S.result.primary].map((x,i)=>({...x,id:"s"+i,p:7}));
+const pain=S.answers.pain, boost={time:["c4","c9","c7"],frumpy:["c7","c1","c10"],together:["c3","c4","c1"],body:["c2","c1","c8"],toomuch:["c7","c3"]}[pain]||[];
+const need=[...CAPSULE,...sig].filter(i=>!owned.has(i.id)).map(i=>({...i,p:i.p+(boost.includes(i.id)?5:0)})).sort((a,b)=>b.p-a.p);
+const budget=S.answers.budget, first=need.slice(0,budget==="200"?5:budget==="100"?3:budget==="50"?2:1), later=need.slice(first.length);
+const P=PAL[S.result.palette];
+return `
+<div class="card stack"><h3>Buy these first</h3><p class="small muted">${budget==="0"?"No budget? Perfect. Try Vinted, a clothes swap or borrowing for this one piece. Everything else, you already have.":"The pieces that unlock the most new outfits with what you already own."}</p>
+${first.length?`<ol class="list">${first.map(i=>`<li><b>${i.name}</b><br><span class="small muted">${shopTip(i,P)}</span></li>`).join("")}</ol>`:`<p>You own every core piece. Don't buy anything for a month. Wear what you have in new combinations.</p>`}</div>
+${later.length?`<div class="card stack"><h3>Later, if you still want them</h3><ul class="list">${later.map(i=>`<li>${i.name}</li>`).join("")}</ul></div>`:""}
+<div class="card stack"><h3>My shopping rules for you</h3><ul class="list"><li>Can you name three outfits it goes with? If not, leave it.</li><li>Neutrals from your palette first, colour second.</li><li>Sit down in it in the changing room.</li><li>One in, one out.</li></ul></div>
+<p class="small muted">Tick pieces as owned in the Wardrobe tab and this list updates.</p>`}
+function shopTip(i,P){
+const n=P.neutrals.map(x=>x[0].toLowerCase());
+if(i.cat==="top"&&i.col!=="neutral")return `Try it in ${P.colours[0][0].toLowerCase()} or ${P.colours[1][0].toLowerCase()}.`;
+if(["layer","bottom","shoes","bag"].includes(i.cat))return `Choose ${n[0]} or ${n[1]} so it goes with everything.`;
+return `In ${n[3]||n[0]} or ${n[0]}.`;
+}
+function bind(){
+const gf=$("#gateForm");
+if(gf) gf.addEventListener("submit",e=>{e.preventDefault();
+const email=$("#email").value.trim(), code=$("#code").value.trim().toUpperCase();
+if(code===CONFIG.demoCode){loadSample();return}
+if(!/^[^ @]+@[^ @]+[.][^ @]+$/.test(email)){$("#gateErr").textContent="Enter the email address you used at checkout.";return}
+if(!CONFIG.accessCodes.includes(code)){$("#gateErr").textContent="That code doesn't match. Check your welcome email, or contact "+CONFIG.supportEmail+".";return}
+S.unlocked=true;S.email=email;save();view="quiz";render();window.scrollTo(0,0)});
+if(view==="quiz"){
+const q=QUESTIONS[S.step];
+if(q.type==="text"){const inp=$("#q_"+q.id);inp.focus();inp.addEventListener("input",()=>{S.answers[q.id]=inp.value;save();$("#next").disabled=!inp.value.trim()});
+inp.addEventListener("keydown",e=>{if(e.key==="Enter"&&inp.value.trim())next()})}
+document.querySelectorAll(".opts input").forEach(inp=>inp.addEventListener("change",()=>{
+if(q.type==="single"){S.answers[q.id]=inp.value;save();render();return}
+let arr=S.answers[q.id]||[];
+if(inp.checked){if(arr.length>=q.max){inp.checked=false;toast("Up to "+q.max+" please");return}arr=[...arr,inp.value]}else arr=arr.filter(v=>v!==inp.value);
+S.answers[q.id]=arr;save();render()}));
+$("#back").onclick=()=>{S.step=Math.max(0,S.step-1);save();render()};
+$("#next").onclick=next;
+}
+document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render();const t=document.querySelector(".tabs");t&&t.scrollIntoView({block:"start"})});
+const rt=$("#retake");if(rt)rt.onclick=()=>{S.step=0;S.result=null;S.sample=false;save();view=S.unlocked?"quiz":"gate";render();window.scrollTo(0,0)};
+const sr=$("#startReal");if(sr)sr.onclick=()=>{S={unlocked:false,email:"",answers:{},step:0,result:null,wardrobe:[],days:[],saved:[],sample:false};save();view="gate";render()};
+document.querySelectorAll("[data-quick]").forEach(b=>b.onclick=()=>{
+const id=b.dataset.quick, ex=S.wardrobe.find(i=>i.from===id);
+if(ex){S.wardrobe=S.wardrobe.filter(i=>i.from!==id)}
+else{const src=id.startsWith("s")?{...SIGNATURE[S.result.primary][+id.slice(1)]}:CAPSULE.find(c=>c.id===id);
+S.wardrobe.push({id:"w"+Date.now()+Math.random().toString(36).slice(2,6),from:id,name:src.name,cat:src.cat,col:src.col,vibe:src.vibe})}
+save();render()});
+const af=$("#addForm");if(af)af.addEventListener("submit",e=>{e.preventDefault();const n=$("#iname").value.trim();if(!n){$("#iname").focus();return}
+S.wardrobe.push({id:"w"+Date.now(),name:n,cat:$("#icat").value,col:$("#icol").value,vibe:$("#ivibe").value});save();render();toast("Added "+n)});
+document.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{S.wardrobe=S.wardrobe.filter(i=>i.id!==b.dataset.del);save();render()});
+document.querySelectorAll("[data-occ]").forEach(b=>b.onclick=()=>{occasion=b.dataset.occ;render()});
+const sh=$("#shuffle");if(sh)sh.onclick=()=>{seed=Math.floor(Math.random()*1e6)+1;render()};
+document.querySelectorAll("[data-save]").forEach(b=>b.onclick=()=>{const s=decodeURIComponent(b.dataset.save);if(!S.saved.includes(s))S.saved.push(s);save();render();toast("Outfit saved")});
+document.querySelectorAll("[data-unsave]").forEach(b=>b.onclick=()=>{S.saved.splice(+b.dataset.unsave,1);save();render()});
+document.querySelectorAll("[data-day]").forEach(c=>c.onchange=()=>{S.days[+c.dataset.day]=c.checked;save();render()});
+}
+function next(){
+if(S.step<QUESTIONS.length-1){S.step++;save();render();window.scrollTo(0,0);return}
+S.result=compute(S.answers);save();view="results";tab="profile";render();window.scrollTo(0,0);
+}
+function loadSample(){
+S={unlocked:true,email:"",step:0,sample:true,days:[true,true,false,false,false,false,false],saved:[],
+answers:{name:"Example",week:"home",grab:"RC",words:["RC","PM","SF"],reach:["RC","comfort"],pain:"frumpy",veins:"neutral",metal:"warm",hair:"medium",contrast:"medium",fit:["waist","tummy","legs"],budget:"100"},
+wardrobe:[]};
+S.result=compute(S.answers);
+["c1","c3","c4","c5","c8","c9","c11"].forEach(id=>{const c=CAPSULE.find(x=>x.id===id);S.wardrobe.push({id:"w"+id,from:id,name:c.name,cat:c.cat,col:c.col,vibe:c.vibe})});
+S.wardrobe.push({id:"wx1",name:"Green cashmere jumper",cat:"top",col:"colour",vibe:"both"});
+save();view="results";tab="profile";render();
+}
+render();
+</script>
+</body>
+</html>
