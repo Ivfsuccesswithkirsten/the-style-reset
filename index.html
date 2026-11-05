@@ -267,8 +267,8 @@ footer{padding-block:40px 60px;font-size:.84rem;color:var(--muted)}
 </div>
 </footer>
 <script>
-const CHECKOUT_URL = "";
-if (CHECKOUT_URL) document.querySelectorAll("[data-checkout]").forEach(a => { a.href = CHECKOUT_URL; a.target = "_blank"; a.rel = "noopener"; });
+const CHECKOUT_URL = "https://embryoquality.mysamcart.com/checkout/the-style-reset";
+if (CHECKOUT_URL) document.querySelectorAll("[data-checkout]").forEach(a => { a.href = CHECKOUT_URL; });
 const T = {
 RC:["The Relaxed Classic","Jeans, a great knit and a good coat. Effortless, never boring.","Straight jeans + chunky knit + white trainers + crossbody"],
 PM:["The Polished Minimalist","Clean lines, fewer pieces, everything works together.","Wide-leg trousers + tucked fine knit + blazer + loafers"],
@@ -284,7 +284,7 @@ const [name, tag, f] = T[b.dataset.a];
 reveal.innerHTML = `<span class="eyebrow">You might be</span><h3>${name}</h3><p>${tag}</p>
 <p class="muted">Try this tomorrow: <b style="color:var(--on-band)">${f}</b></p>
 <p class="muted">That's one answer out of twelve. Your full Style Reset adds your colours, fit fixes, six formulas and outfits built from your own wardrobe.</p>
-<a class="buy" href="${CHECKOUT_URL || "#buy"}" ${CHECKOUT_URL ? 'target="_blank" rel="noopener"' : ""} style="align-self:flex-start">Get my full profile <small>$27</small></a>`;
+<a class="buy" href="${CHECKOUT_URL || "#buy"}" style="align-self:flex-start">Get my full profile <small>$27</small></a>`;
 reveal.hidden = false;
 }));
 </script>
